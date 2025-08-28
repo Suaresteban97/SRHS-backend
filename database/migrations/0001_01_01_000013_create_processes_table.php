@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('steps', function (Blueprint $table) {
+        Schema::create('processes', function (Blueprint $table) {
             $table->id();
-            $table->string("name");          
-            $table->tinyInteger("notification")->default(0);
-            $table->tinyInteger("notified")->default(0);
+            $table->foreignId('branch_id')
+            ->references('id')
+            ->on('subdirection_user_branches');
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('steps');
+        Schema::dropIfExists('processes');
     }
 };

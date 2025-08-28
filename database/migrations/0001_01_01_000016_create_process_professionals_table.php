@@ -11,14 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('document_branches', function (Blueprint $table) {
+        Schema::create('process_professionals', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('document_id')
+            $table->foreignId('process_id')
+            ->nullable()
             ->references('id')
-            ->on('documents');
-            $table->foreignId('branch_id')
+            ->on('processes');
+            $table->foreignId('professional_id')
+            ->nullable()
             ->references('id')
-            ->on('subdirection_user_branches');
+            ->on('professionals');
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('document_branches');
+        Schema::dropIfExists('process_professionals');
     }
 };

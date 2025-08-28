@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('locations', function (Blueprint $table) {
             $table->id();
             $table->integer("code");
-            $table->string("name");
+            $table->string("name", 100);
             $table->string("latitude");
             $table->string("longitude");
             $table->foreignId("city_id")->nullable()->unsigned()->references("id")->on("cities");

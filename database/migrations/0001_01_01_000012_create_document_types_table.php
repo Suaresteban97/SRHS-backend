@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('processes', function (Blueprint $table) {
+        Schema::create('document_types', function (Blueprint $table) {
             $table->id();
-            $table->string("name");
-            $table->foreignId("step_id")->nullable()->unsigned()->references("id")->on("steps");
-            $table->foreignId("subdirection_user_branches_id")->nullable()->unsigned()->references("id")->on("subdirection_user_branches");
+            $table->integer("code");
+            $table->string("name", 50);
+            $table->integer("term");
             $table->foreignId("group_id")->nullable()->unsigned()->references("id")->on("groups");
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('processes');
+        Schema::dropIfExists('document_types');
     }
 };

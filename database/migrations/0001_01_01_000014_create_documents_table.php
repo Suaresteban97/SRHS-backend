@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string("numeration");
             $table->string("date");
             $table->string("year");
+            $table->integer("step");
             $table->foreignId('type_id')
             ->references('id')
             ->on('document_types');
@@ -24,6 +25,10 @@ return new class extends Migration
             ->nullable()
             ->references('id')
             ->on('files');
+            $table->foreignId('process_id')
+            ->nullable()
+            ->references('id')
+            ->on('processes');
             $table->timestamps();
         });
     }

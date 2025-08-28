@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('professionals', function (Blueprint $table) {
             $table->id();
             $table->integer("code");
-            $table->integer("idenfication");
+            $table->integer("identification");
             $table->string("name");
             $table->string("email")->nullable();
             $table->foreignId("group_id")->nullable()->unsigned()->references("id")->on("groups");

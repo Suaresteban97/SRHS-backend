@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('document_types', function (Blueprint $table) {
+        Schema::create('profiles', function (Blueprint $table) {
             $table->id();
-            $table->integer("code");
-            $table->string("name");
+            $table->string('name', 50);
+            $table->string('email', 50)->unique();
+            $table->string('token', 100)->unique();
+            $table->foreignId("group_id")->nullable()->unsigned()->references("id")->on("groups");
             $table->timestamps();
         });
     }
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('document_types');
+        Schema::dropIfExists('profiles');
     }
 };

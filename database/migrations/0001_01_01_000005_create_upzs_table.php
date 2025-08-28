@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('upzs', function (Blueprint $table) {
             $table->id();
             $table->integer("code");
-            $table->string("name");
+            $table->string("name", 50);
             $table->string("latitude");
             $table->string("longitude");
             $table->foreignId('location_id')
