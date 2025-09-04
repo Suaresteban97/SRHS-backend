@@ -23,6 +23,6 @@ class DocumentTypeSeeder extends Seeder
             ["code" => 7, "name" => "MEMORANDO"],
         ];
         
-        DB::table("documents_types")->insert($data);
+        DB::table("document_types")->insert($data);
     }
 }

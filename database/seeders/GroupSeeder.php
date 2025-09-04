@@ -14,14 +14,16 @@ class GroupSeeder extends Seeder
     public function run(): void
     {
         $data = [
-            ["name" => "Autorizaciones", "line_id" => 1],
-            ["name" => "Alcantarillado", "line_id" => 1],
-            ["name" => "Aguas subterráneas", "line_id" => 1],
-            ["name" => "Monitoreo", "line_id" => 1],
-            ["name" => "POC", "line_id" => 1],
-            ["name" => "Jurídico", "line_id" => 1],
-            ["name" => "Suelos contaminados", "line_id" => 2],
-            ["name" => "Minería", "line_id" => 2],
+            ["id" => 1, "name" => "Autorizaciones"],
+            ["id" => 2, "name" => "Alcantarillado"],
+            ["id" => 3, "name" => "Aguas subterráneas"],
+            ["id" => 4, "name" => "Monitoreo"],
+            ["id" => 5, "name" => "POC"],
+            ["id" => 6, "name" => "Jurídico"],
+            ["id" => 7, "name" => "Suelos contaminados"],
+            ["id" => 8, "name" => "Minería"],
+            ["id" => 9, "name" => "Hidrocarburos"],
+            ["id" => 10, "name" => "Respel"],
         ];
 
         DB::table("groups")->insert($data);

@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('document_types', function (Blueprint $table) {
+        Schema::create('groups_lines', function (Blueprint $table) {
             $table->id();
-            $table->integer("code");
-            $table->string("name", 50);
-            $table->integer("term");
             $table->foreignId("group_id")->nullable()->unsigned()->references("id")->on("groups");
+            $table->foreignId("line_id")->nullable()->unsigned()->references("id")->on("group_lines");
             $table->timestamps();
         });
     }
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('document_types');
+        Schema::dropIfExists('groups_lines');
     }
 };

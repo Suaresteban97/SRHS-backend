@@ -16,9 +16,11 @@ class DatabaseSeeder extends Seeder
         $this->call([
             CitySeeder::class,
             LocationSeeder::class,
-            UpzSeeder::class,
+            //UpzSeeder::class,
             DocumentTypeSeeder::class,
-            GruopSeeder::class,
+            LineSeeder::class,
+            GroupSeeder::class,
+            GroupLineSeeder::class,
         ]);
     }
 }

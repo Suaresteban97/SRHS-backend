@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('groups', function (Blueprint $table) {
             $table->id();
             $table->string("name");
-            $table->foreignId("line_id")->nullable()->unsigned()->references("id")->on("group_lines");
             $table->timestamps();
         });
     }
